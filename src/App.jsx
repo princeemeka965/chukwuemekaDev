@@ -18,7 +18,7 @@ function SplashScreen({ onFinish }) {
         }
         return prev + 1;
       });
-    }, 30);
+    }, 50);
 
     return () => clearInterval(interval);
   }, [onFinish]);
@@ -27,7 +27,7 @@ function SplashScreen({ onFinish }) {
     <div className="min-h-screen bg-[#101a23] flex flex-col items-center justify-center text-white">
       <div className="text-center mb-8">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Chukwuemeka Anyanwu</h1>
-        <p className="text-lg text-blue-200">Software Developer (Web & Mobile Applications)</p>
+        <p className="text-lg text-blue-200">Software Developer (Specializing in Web & Mobile Applications)</p>
       </div>
 
       <div className="w-80 max-w-full bg-gray-800 rounded-full h-4 mb-4">

@@ -98,7 +98,7 @@ const About = () => {
                   variants={fadeIn}
                   transition={{ delay: 0.3 }}
                 >
-                  A Web Developer based in Enugu, Nigeria.
+                  A Software Developer based in Enugu, Nigeria.
                 </motion.h2>
                 
                 <motion.p 
@@ -106,7 +106,7 @@ const About = () => {
                   variants={fadeIn}
                   transition={{ delay: 0.4 }}
                 >
-                  Passionate about crafting dynamic, responsive, and user-centric web applications that are both visually appealing and functionally robust.
+                  Passionate about crafting dynamic, responsive, and user-centric web and mobile applications that are both visually appealing and functionally robust.
                 </motion.p>
               </motion.div>
               

@@ -64,12 +64,12 @@ const Contact = () => {
     };
 
     // Replace with your Google Form ID and entry IDs
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdCpb71KF2pJZcjaHayGrXRg655AbAg79VcHMVekq3UcpLgaw/formResponse';
     const ENTRY_IDS = {
-        name: 'entry.XXXXXXXX',
-        email: 'entry.XXXXXXXX',
-        subject: 'entry.XXXXXXXX',
-        message: 'entry.XXXXXXXX'
+        name: 'entry.1875401006',
+        email: 'entry.881625807',
+        subject: 'entry.1694162136',
+        message: 'entry.837116911'
     };
 
     const handleChange = (e) => {
@@ -218,7 +218,7 @@ const Contact = () => {
                             variants={buttonVariants}
                         >
                             <motion.button
-                                className="flex items-center justify-center gap-2 rounded-lg bg-[#0d7ff2] px-6 py-3 text-base font-bold text-white disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="flex items-center justify-center cursor-pointer gap-2 rounded-lg bg-[#0d7ff2] px-6 py-3 text-base font-bold text-white disabled:opacity-70 disabled:cursor-not-allowed"
                                 type="submit"
                                 disabled={isSubmitting}
                                 variants={buttonVariants}
@@ -274,7 +274,7 @@ const Contact = () => {
                             {/* Facebook */}
                             <motion.a
                                 className="flex h-10 w-10 items-center justify-center rounded-full bg-[#223649] text-white transition-colors hover:bg-[#1877F2]"
-                                href="https://facebook.com"
+                                href="https://web.facebook.com/prince.emeka.965/"
                                 target="_blank"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
@@ -293,7 +293,7 @@ const Contact = () => {
                             {/* Instagram */}
                             <motion.a
                                 className="flex h-10 w-10 items-center justify-center rounded-full bg-[#223649] text-white transition-colors hover:bg-[#E4405F]"
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/mranyanwuemeka/"
                                 target="_blank"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
@@ -336,7 +336,7 @@ const Contact = () => {
                             {/* WhatsApp */}
                             <motion.a
                                 className="flex h-10 w-10 items-center justify-center rounded-full bg-[#223649] text-white transition-colors hover:bg-[#25D366]"
-                                href="https://wa.me/your-number"
+                                href="https://wa.me/+2348163276826"
                                 target="_blank"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
@@ -362,7 +362,7 @@ const Contact = () => {
                             {/* Twitter (X) */}
                             <motion.a
                                 className="flex h-10 w-10 items-center justify-center rounded-full bg-[#223649] text-white transition-colors hover:bg-[#1DA1F2]"
-                                href="https://twitter.com"
+                                href="https://x.com/mr_anyanwu"
                                 target="_blank"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}

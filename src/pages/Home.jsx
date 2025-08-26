@@ -12,7 +12,7 @@ export default function Home() {
             Chukwuemeka Anyanwu
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up">
-            Welcome to my portfolio! I’m a web developer passionate about building intuitive, responsive, and modern digital experiences that bring ideas to life.
+            Welcome to my portfolio! I’m a software developer passionate about building intuitive, responsive, and modern digital experiences that bring ideas to life.
           </p>
           <Link
             className="inline-block bg-gradient-to-r from-blue-400 to-purple-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-opacity-90 transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 animate-fade-in"
