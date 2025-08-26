@@ -50,7 +50,7 @@ const About = () => {
       <Header />
       <main className="flex-1">
         <motion.section 
-          className="py-20 sm:py-24 lg:py-20"
+          className="py-10 sm:py-24 lg:py-20"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
