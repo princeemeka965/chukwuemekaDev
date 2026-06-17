@@ -7,7 +7,8 @@ const Contact = () => {
         name: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
+        botcheck: ''
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,14 +64,12 @@ const Contact = () => {
         }
     };
 
-    // Replace with your Google Form ID and entry IDs
-    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdCpb71KF2pJZcjaHayGrXRg655AbAg79VcHMVekq3UcpLgaw/formResponse';
-    const ENTRY_IDS = {
-        name: 'entry.1875401006',
-        email: 'entry.881625807',
-        subject: 'entry.1694162136',
-        message: 'entry.837116911'
-    };
+    // Web3Forms access key — get yours by entering anyanwue4@gmail.com at
+    // https://web3forms.com (it's emailed to you instantly). Submissions are
+    // delivered to the email the key is registered with. This key is safe to
+    // expose in client-side code. Can also be set via VITE_WEB3FORMS_ACCESS_KEY.
+    const WEB3FORMS_ACCESS_KEY =
+        import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE';
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -86,33 +85,42 @@ const Contact = () => {
         setSubmitStatus(null);
 
         try {
-            // Create form data for submission
-            const formDataToSubmit = new FormData();
-            formDataToSubmit.append(ENTRY_IDS.name, formData.name);
-            formDataToSubmit.append(ENTRY_IDS.email, formData.email);
-            formDataToSubmit.append(ENTRY_IDS.subject, formData.subject);
-            formDataToSubmit.append(ENTRY_IDS.message, formData.message);
-
-            // Submit to Google Form
-            await fetch(GOOGLE_FORM_ACTION, {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                mode: 'no-cors',
-                body: formDataToSubmit
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    name: formData.name,
+                    email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    from_name: formData.name,
+                    replyto: formData.email,
+                    // Honeypot field — bots fill this, humans never see it
+                    botcheck: formData.botcheck
+                })
             });
 
-            // Since we're using no-cors mode, we can't check the response status
-            // But we can assume it was successful if no error was thrown
-            setSubmitStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            const data = await response.json();
 
-            // Reset status after 3 seconds
-            setTimeout(() => setSubmitStatus(null), 3000);
+            if (data.success) {
+                setSubmitStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '', botcheck: '' });
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+
+            // Reset status after 5 seconds
+            setTimeout(() => setSubmitStatus(null), 5000);
         } catch (error) {
             console.error('Error submitting form:', error);
             setSubmitStatus('error');
 
-            // Reset status after 3 seconds
-            setTimeout(() => setSubmitStatus(null), 3000);
+            // Reset status after 5 seconds
+            setTimeout(() => setSubmitStatus(null), 5000);
         } finally {
             setIsSubmitting(false);
         }
@@ -156,6 +164,17 @@ const Contact = () => {
                         initial="hidden"
                         animate="visible"
                     >
+                        {/* Honeypot anti-spam field — hidden from real users */}
+                        <input
+                            type="checkbox"
+                            name="botcheck"
+                            className="hidden"
+                            tabIndex="-1"
+                            autoComplete="off"
+                            checked={!!formData.botcheck}
+                            onChange={handleChange}
+                        />
+
                         <motion.div className="grid grid-cols-1 gap-6 sm:grid-cols-2" variants={itemVariants}>
                             <div className="relative">
                                 <label className="sr-only" htmlFor="name">Your Name</label>
