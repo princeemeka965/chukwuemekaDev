@@ -8,7 +8,6 @@ const ROLES = [
   "Web Developer",
   "Mobile App Developer",
   "React & React Native Engineer",
-  "Full-Stack Problem Solver",
 ];
 
 const SKILLS = [
