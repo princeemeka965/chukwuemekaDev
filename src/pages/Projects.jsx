@@ -7,7 +7,7 @@ const projects = [
         id: 1,
         title: "Ocare Phinas Electronics",
         description: "A modern e-commerce store for genuine gadgets — phones, laptops, tablets and audio — with brand browsing, manual payment confirmation, and nationwide delivery.",
-        link: "https://ocare-phinas.vercel.app/",
+        link: "https://ocarephinas.com",
         image: "/projects/ocare-phinas.png",
         tags: ["React", "E-commerce", "Tailwind CSS"],
         featured: true,

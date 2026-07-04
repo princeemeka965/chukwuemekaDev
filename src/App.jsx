@@ -4,6 +4,7 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contacts';
+import WhatsAppBar from './components/WhatsAppBar';
 
 function SplashScreen({ onFinish }) {
   const [progress, setProgress] = useState(0);
@@ -63,6 +64,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <WhatsAppBar />
     </BrowserRouter>
   );
 }

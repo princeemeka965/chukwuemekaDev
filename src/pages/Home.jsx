@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
+import { getWhatsAppLink } from "../utils/whatsapp";
 
 const ROLES = [
   "Web Developer",
@@ -32,7 +33,7 @@ const FEATURED = [
     title: "Ocare Phinas Electronics",
     description:
       "A modern e-commerce store for genuine gadgets — phones, laptops, tablets and audio — with nationwide delivery.",
-    link: "https://ocare-phinas.vercel.app/",
+    link: "https://ocarephinas.com",
     image: "/projects/ocare-phinas.png",
   },
   {
@@ -200,13 +201,15 @@ export default function Home() {
                     arrow_forward
                   </span>
                 </Link>
-                <Link
-                  to="/contact"
+                <a
+                  href={getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg border border-[#223649] bg-[#1a2632] px-7 py-3 text-base font-bold text-white transition-colors hover:border-[#0d7ff2] hover:text-[#0d7ff2]"
                 >
                   Get in Touch
                   <span className="material-symbols-outlined">mail</span>
-                </Link>
+                </a>
               </motion.div>
 
               {/* Socials */}
@@ -381,13 +384,15 @@ export default function Home() {
               Let's build something great together. I'm always open to new ideas,
               collaborations, and opportunities.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 px-8 py-3 text-base font-bold text-white shadow-lg shadow-blue-500/20 transition-transform hover:scale-105"
             >
               Let's Talk
               <span className="material-symbols-outlined">arrow_outward</span>
-            </Link>
+            </a>
           </motion.div>
         </section>
       </main>

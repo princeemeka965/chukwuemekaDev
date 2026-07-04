@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  padding-bottom: 4.5rem;
+}
+
 @keyframes fade-in-down {
   from {
     opacity: 0;
